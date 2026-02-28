@@ -2,7 +2,7 @@ FROM node:20
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js .
-ENV DB_HOST: mysql
+ENV DB_HOST=mysql
 RUN npm install
 CMD [ "node", "index.js" ]
 
