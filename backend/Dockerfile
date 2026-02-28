@@ -10,4 +10,4 @@ WORKDIR /opt/server
 RUN useradd expense
 COPY --from=builder /opt/server /opt/server
 USER expense 
-CMD [ "node", "server.js" ]
+CMD [ "node", "index.js" ]
