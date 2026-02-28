@@ -1,7 +1,15 @@
 FROM nginx
 RUN rm -rf /usr/share/nginx/html/*
+RUN rm -rf /etc/nginx/nginx.conf
+RUN rm -rf /etc/nginx/conf.d/default.conf
 COPY static /usr/share/nginx/html/
-COPY index.html /usr/share/nginx/html/
-COPY asset-manifest.json /usr/share/nginx/html/
-COPY robots.txt /usr/share/nginx/html/
+COPY . /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/conf.d/expense.conf
+
+
+FROM nginx 
+RUN rm -rf /usr/share/nginx/html/
+RUN rm -rf /etc/nginx/nginx.conf
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY static /usr/share/nginx/html/
+COPY nginx.conf /etc/nginx/nginx.conf
